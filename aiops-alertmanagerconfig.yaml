@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: aiops-rca-webhook
+  namespace: aiops-demo
+  labels:
+    release: kube-prometheus-stack
+spec:
+  route:
+    receiver: aiops-rca-webhook
+    matchers:
+      - name: alertname
+        value: KubernetesPodOOMKilled
+        matchType: =
+  receivers:
+    - name: aiops-rca-webhook
+      webhookConfigs:
+        - url: http://10.10.20.210:5000/webhook
+          sendResolved: false

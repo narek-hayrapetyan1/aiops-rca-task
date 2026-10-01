@@ -1,0 +1,28 @@
+{
+  "receiver": "aiops-rca-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubernetesPodOOMKilled",
+        "severity": "critical",
+        "namespace": "aiops-demo",
+        "pod": "REPLACE_WITH_POD_NAME",
+        "container": "oom-victim"
+      },
+      "annotations": {
+        "summary": "Pod was OOMKilled",
+        "description": "The oom-victim container exceeded its memory limit and was killed by Kubernetes."
+      },
+      "startsAt": "2026-10-01T00:00:00Z"
+    }
+  ],
+  "commonLabels": {
+    "alertname": "KubernetesPodOOMKilled",
+    "namespace": "aiops-demo"
+  },
+  "commonAnnotations": {
+    "summary": "Pod was OOMKilled"
+  }
+}
